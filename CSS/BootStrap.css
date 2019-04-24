@@ -10078,6 +10078,12 @@ a.text-dark:hover, a.text-dark:focus {
     }
 }
 
+input[type=radio]
+{
+    border:0px;
+    width:100% ;
+    height:1.5em;
+}
 
 /*# sourceMappingURL=bootstrap.css.map */
 
