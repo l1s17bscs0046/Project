@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+    <link rel="stylesheet" href="CSS/BootStrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="col-md-2 col-sm-1 col-1"><a href="AboutUs.html"><font color="white"><i class="fas fa-address-card"></i><span class="d-none d-sm-none d-md-inline"> About Us</span></font> </a> </div>
+
+        <div class="col-md-2 col-sm-1 col-1"><a href="ContactUs.html"><font color="white"><i class="fas fa-mobile-alt"></i><span class="d-none d-sm-none d-md-inline"> Contact</span> </font> </a></div>
+
+    </div>
+    <hr>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-12">
+            <img src="Pics/Pic1.jpg" class="container-fluid" width=100% height=100%>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-12">
+            <h1 class="text-center my-5"><i class="fas fa-user-lock fa-md"></i> <span class="d-none d-sm-inline"> </span>
+                Login
+            </h1>
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-xs-2 d-none d-sm-inline mt-auto">
+                        <label for="pro_title" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> </span>
+                            Email:</label>
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-8 col-sm-8 col-xs-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-envelope-square"></i></div>
+                            </div>
+                            <input type="email" class="form-control" id="pro_title" name="pro_title" required
+                                   placeholder="Enter Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 d-none d-sm-block mt-auto">
+                        <label for="pro_price" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"></span>
+                            Password:</label>
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-8 col-sm-8">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-key"></i></div>
+                            </div>
+                            <input type="password" minlength="5" class="form-control" id="pro_price" name="pro_price" required placeholder="Enter Password">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xl-4"></div>
+                    <div class="col-xl-4">
+                        <p align="center"><a href="ForgetPassword.html"><font size="2">Forgot Password</font> </a> </p>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="d-none d-sm-block col-sm-3 col-md-3 col-lg-4 col-xl-3 mt-auto"></div>
+                    <div class="col-sm-8 col-md-8 col-lg-5 col-xl-6">
+                        <button type="submit" name="insert_pro" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
+                            Login
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xl-3"></div>
+                    <div class="col-xl-6">
+                        <p align="center"><span class="d-none d-sm-none d-md-inline"> Don't have an Account? </span><a href="Register.html">Sign Up</a> </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+<hr>
+<footer>
+    <p>Developed by <a href="https://github.com/l1s17bscs0046">Ahmed Asad</a></p>
+    <address>
+        University of Central Punjab, Lahore
+    </address>
+    <p> Copyrights &copy; 2019 All rights reserved. </p>
+</footer>
+</body>
+</html>
