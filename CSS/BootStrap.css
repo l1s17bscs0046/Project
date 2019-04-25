@@ -11,6 +11,12 @@ input[type=radio] {
     height: 1.2em;
 }
 
+/*li{
+    flex-wrap: wrap;
+    display: inline-block;
+    padding: 10px 30px 0px 0px;
+}*/
+
 .temp{
     text-align: center  ;
     background-color: #007bff;
@@ -44,7 +50,7 @@ header {
     overflow:hidden;
     background:none!important;
     height: 77%;
-    width:100%;
+    width:70;
     border: 1px solid black;
     border-radius: 5px;
 }
