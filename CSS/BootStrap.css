@@ -11,11 +11,9 @@ input[type=radio] {
     height: 1.2em;
 }
 
-/*li{
-    flex-wrap: wrap;
-    display: inline-block;
-    padding: 10px 30px 0px 0px;
-}*/
+.bkg{
+    background-image: url("https://www.backgroundsy.com/file/large/light-blue-background.jpg");
+}
 
 .temp{
     text-align: center  ;
