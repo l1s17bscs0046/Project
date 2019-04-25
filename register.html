@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+    <link rel="stylesheet" href="CSS/BootStrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Vollkorn', serif;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <div class="row">
+        <div class="col-md-2 col-sm-1 col-1"><a href="Login.html"><font color="white"><i class="fas fa-home"></i><span class="d-none d-sm-none d-md-inline"> Login</span> </font></a> </div>
+
+        <div class="col-md-2 col-sm-1 col-1"><a href="about.html"><font color="white"><i class="fas fa-address-card"></i><span class="d-none d-sm-none d-md-inline"> About Us</span> </font></a></div>
+
+        <div class="col-md-2 col-sm-1 col-1"><a href="ContactUs.html"><font color="white"><i class="fas fa-mobile-alt"></i><span class="d-none d-sm-none d-md-inline"> Contact</span> </font></a> </div>
+
+    </div>
+    <hr>
+</header>
+<div class="container-fluid">
+    <h1 class="text-center my-4"><i class="fas fa-registered"></i> Register <span class="d-sm-inline d-none d-xs-block "> Here  </span>
+    </h1>
+    <form action="" method=" post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-2  col-xl-2 col-md-3 col-sm-4 d-sm-inline d-none d-xs-block  mt-auto">
+                <label for="pro_title" class=" float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> First Name </span>
+                    <span class="d-md-none d-sm-inline"> F_Name </span></label>
+            </div>
+            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-file-signature"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="pro_title" name="first name" required
+                           placeholder="Enter first-name">
+                </div>
+            </div>
+            <div class=" col-lg-2  col-xl-2 col-md-3 col-sm-4 d-sm-inline d-none d-xs-block mt-auto">
+                <label for="pro_cat" class=" float-sm-right float-md-right"><span class="d-sm-none d-md-inline">Last Name </span>
+                    <span class="d-md-none d-sm-inline">L_name</span></label>
+            </div>
+            <div class=" col-lg-3 col-xl-3 col-md-8 mt-3 col-sm-7 mt-lg-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-file-signature"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id= "pro_lname" name="lastname" required
+                           placeholder="Enter last-name">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class=" col-lg-2 col-xl-2 col-md-3 col-sm-4  d-none  d-xs-block d-sm-block mt-auto">
+                <label for="pro_brand" class=" float-sm-right float-md-right"> <span class="d-sm-none d-md-inline">  </span> Gender</label>
+            </div>
+            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input   type="radio"   name="gender" checked value="Female"  class="form-control"  >Female<br>
+                    <input  type="radio"  name="gender" value="Male"  class="form-control"   >Male<br>
+                    <input  type="radio"  name="gender"  value="Other"  class="form-control"  >Other<br>
+                </div>
+            </div>
+            <div class="col-lg-2 col-xl-2  col-md-3  col-sm-4 d-none  d-none d-xs-block  d-none d-sm-block mt-auto">
+                <label for="pro_img" class=" float-sm-right float-md-right"><span class="d-sm-none d-md-inline"> Date of birth </span>
+                    <span class="d-md-none d-sm-inline"> D.O.B </span> </label>
+            </div>
+            <div class=" col-lg-3 col-xl-3 col-md-8  col-sm-7 mt-3 mt-lg-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"> <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <input type="date"  class="form-control" id= "pro_date" name="bday">
+
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class=" col-lg-2 col-xl-2 col-md-3 col-sm-4  d-none  d-xs-block d-sm-block mt-auto">
+                <label for="pro_brand" class=" float-sm-right float-md-right"> <span class="d-sm-none d-md-inline"> </span>  Educational level</label>
+            </div>
+            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-book"></i></div>
+                    </div>
+                    <select  class="form-control" id="pro_price" required placeholder="choose "name="educational level">
+                        <option value="school" >School</option>
+                        <option value="College"> College</option>
+                        <option value="bachelor" >Bachelors</option>
+                        <option value="master"> Masters</option>
+                    </select><br>
+
+                </div>
+            </div>
+
+            <div class= "col-lg-2 col-xl-2 col-md-3 col-sm-4  d-none d-xs-block d-none d-sm-block mt-auto">
+                <label for="pro_price" class="float-md-right float-sm-right">  Email
+                </label>
+            </div>
+            <div class=" col-lg-3 col-xl-3 col-md-8 col-sm-7 mt-3 mt-lg-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-envelope-square"></i> </div>
+                    </div>
+                    <input  type="email" class="form-control" id="pro_email" name="email" required placeholder="Enter Email">
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class=" col-lg-2 col-xl-2  col-md-3 col-sm-4  d-none d-sm-block d-none d-xs-block mt-auto">
+                <label for="pro_kw" class=" float-sm-right float-md-right">
+                    Password: </label>
+            </div>
+            <div class="col-lg-3 col-xl-3  col-md-8 col-sm-7 mt-3 mt-lg-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-key"></i></div>
+                    </div>
+                    <input class="form-control"  type="password" id="pro_password" name="password"
+                           pattern="(?=,*/d)(?=.*[a-z](?=.*[A-Z]).{8,})"
+                           title="Must contain atleast one  number and one uppercase and lowercase letter,and atleast 8 or more charcters"
+                           required  placeholder="Enter password">
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class=" col-lg-2 col-xl-2 col-md-3 col-sm-4   d-none d-sm-block  d-none d-xs-block mt-auto">
+                <label for="pro_desc" class=" float-sm-right float-md-right"> Confirm
+                    Password:</label>
+            </div>
+            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-key"></i></div>
+                    </div>
+                    <input class="form-control" type="password" id="pro_password" name="password"
+                           pattern="(?=,*/d)(?=.*[a-z](?=.*[A-Z]).{8,})"
+                           title="Must contain atleast one  number and one uppercase and lowercase letter,and atleast 8 or more charcters"
+                           required  placeholder=" Enter password again ">
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-3  d-none d-sm-block col-sm-4   d-none d-xs-block col-lg-2 col-xl-2 mt-auto"></div>
+            <div class=" col-sm-7 col-md-8 col-lg-3 col-xl-3 col-sm-7 " >
+                <button type="submit" name="insert_pro" class="btn btn-primary btn-block"><i class="fas fa-registered"></i>
+                    Regsiter
+                    Now
+                </button>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-3  d-none d-sm-block col-sm-4   d-none d-xs-block col-lg-2 col-xl-2 mt-auto"></div>
+            <div class=" col-sm-7 col-md-8 col-lg-3 col-xl-3 col-sm-7 " >
+                <button type="reset" value="reset" name="insert_pro" class="btn btn-primary btn-block"><i class="fas fa-redo"></i>
+                    Reset
+                </button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>
+
+<footer>
+    <font size="2"> <p>  Developed by <a href="https://github.com/hamdacheema">Hamda cheema </a></p>
+        <address>
+            University of Central Punjab, Lahore
+        </address>
+        <p> Copyrights &copy; 2019 All rights reserved. </p> </font>
+</footer>
+</body>
+</html>
