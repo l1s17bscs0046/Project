@@ -1,3 +1,61 @@
+<?php
+$con = mysqli_connect("localhost","root","","online_study");
+if(!$con)
+    die("Connection failed");
+?>
+
+<?php
+if(isset($_POST['change_password'])){
+    //getting text data from the fields
+    $fgt_email = $_POST['fgt_email'];
+    $new_pass = $_POST['fgt_pass'];
+    $cfm_pass = $_POST['cfm_pass'];
+
+    if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/", $new_pass) && strlen($new_pass) < 8) {
+        $response = array(
+            "type" => "warning",
+            "message" => "Enter Valid Password."
+        );
+    } else if ($new_pass !=$cfm_pass) {
+        $response = array(
+            "type" => "warning",
+            "message" => "Password Doesn't Match."
+        );
+    } else {
+        $get_pass = "select * from student where email='$fgt_email'";
+        $run_pass = mysqli_query($con, $get_pass);
+        $row_pass = mysqli_fetch_array($run_pass);
+        $old_pass = $row_pass['password'];
+        if ($old_pass == $new_pass) {
+            $response = array(
+                "type" => "warning",
+                "message" => "Password has been used before."
+            );
+        } else {
+            $update_password = "update student set password = '$new_pass'
+                                        where email='$fgt_email'";
+            $update_pro = mysqli_query($con, $update_password);
+            if ($update_pro) {
+
+                header("location: Login.php");
+                $response = array(
+                    "type" => "warning",
+                    "message" => "Password Changed."
+                );
+            } else {
+                $response = array(
+                    "type" => "warning",
+                    "message" => "Email doesn't Exist."
+                );
+            }
+
+
+        }
+
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns:display="http://www.w3.org/1999/xhtml" xmlns:>
 <head>
@@ -19,7 +77,7 @@
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="Home.html"><font color="white"><i class="fas fa-home"></i>Home</font></a>
+        <a class="navbar-brand" href="index.php"><font color="white"><i class="fas fa-home"></i>Home</font></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,13 +85,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Login.html" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="Login.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="AboutUs.html" class="text-dark"><font color="white"><i class="fas fa-address-card"></i> About</font><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="AboutUs.php" class="text-dark"><font color="white"><i class="fas fa-address-card"></i> About</font><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="ContactUs.html" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="ContactUs.php" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -51,7 +109,11 @@
 </h2>
 <div class="row ">
     <div class="container-fluid">
-
+        <?php if (!empty($response)) { ?>
+            <div class="alert alert-<?php echo $response["type"]; ?>">
+                <?php echo $response["message"]; ?>
+            </div>
+        <?php } ?>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-2 d-none d-sm-inline mt-auto">
@@ -63,7 +125,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-envelope-square"></i></div>
                         </div>
-                        <input type="email" class="form-control" id="pro_email" name="pro_email" required
+                        <input type="email" class="form-control" id="pro_email" name="fgt_email" required
                                placeholder="Enter Email Address" >
                     </div>
                 </div>
@@ -79,8 +141,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-key"></i></div>
                         </div>
-                        <input type="password" class="form-control" id="pro_password" name="pro_password" required
-                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                        <input type="password" class="form-control" id="pro_password" name="fgt_pass" required
                                placeholder="Enter Password">
                     </div>
                 </div>
@@ -96,8 +157,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-key"></i></div>
                         </div>
-                        <input type="password" class="form-control" id="pro_newPass" name="pro_newPass" required
-                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                        <input type="password" class="form-control" id="pro_newPass" name="cfm_pass" required
                                placeholder="Enter Password Again">
                     </div>
                 </div>
@@ -106,7 +166,7 @@
             <div class="row my-3">
                 <div class="d-none d-sm-block col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-auto"></div>
                 <div class="col-sm-7 col-md-7 col-lg-5 col-xl-5">
-                    <button type="submit" name="insert_pro" formaction="LogIN.html" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
+                    <button type="submit" name="change_password" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
                         Submit
                     </button>
                 </div>
@@ -115,7 +175,7 @@
             <div class="row my-3">
                 <div class="d-none d-sm-block col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-auto"></div>
                 <div class="col-sm-7 col-md-7 col-lg-5 col-xl-5">
-                    <button type="reset" name="insert_pro" class="btn btn-primary btn-block"><i class="fas fa-undo"></i>
+                    <button type="reset" name="reset" class="btn btn-primary btn-block"><i class="fas fa-undo"></i>
                         Reset
                     </button>
                 </div>

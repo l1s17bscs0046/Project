@@ -19,7 +19,7 @@
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="Home.html"><font color="white"><i class="fas fa-home"></i>Home</font></a>
+        <a class="navbar-brand" href="index.php"><font color="white"><i class="fas fa-home"></i>Home</font></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,13 +27,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Login.html" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="Login.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="Register.html" class="text-dark"><font color="white"><i class="fas fa-registered"></i> Register</font><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="Register.php" class="text-dark"><font color="white"><i class="fas fa-registered"></i> Register</font><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="ContactUs.html" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="ContactUs.php" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
