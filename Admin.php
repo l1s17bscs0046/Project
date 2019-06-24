@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Admin</title>
 
     <meta name="viewport" content="width=device-width, initial-scale= 1.0">
     <link rel="stylesheet" href="CSS/BootStrap.css">
@@ -32,10 +32,10 @@
                     <a class="nav-link" href="ContactUs.php" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!--<form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-secondary btn-lg active btn btn-secondary btn-sm my-2 my-sm-0" type="submit">Go</button>
-            </form>
+            </form>-->
         </div>
     </nav>
 
@@ -44,30 +44,27 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-8 col-lg-8 col-md-12">
+        <div class="col-xl-6 col-lg-6 col-md-12">
             <img src="Pics/Pic1.jpg" class="container-fluid" width=100% height=100%>
         </div>
 
-        <div class="col-xl-4 col-lg-4 col-md-12">
-            <h1 class="text-center my-5"><i class="fas fa-user-lock fa-md"></i> <span class="d-none d-sm-inline"> </span>
-                Login
+        <div class="col-xl-6 col-lg-6 col-md-12">
+            <h1 class="text-center my-5"><i class="fas fa-user-tie fa-md"></i> <span class="d-none d-sm-inline"> </span>
+                Admin
             </h1>
-            <h6 class="text-center my-3"><i class="fas fa-user-tie fa-md"></i><span class="d-none d-sm-inline"> </span>
-                Login as <a href="Admin.php">Admin</a>
-            </h6>
             <form action="" method="post" id="loginForm" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-xs-2 d-none d-sm-inline mt-auto">
                         <label for="pro_title" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> </span>
-                            Email:</label>
+                            Username:</label>
                     </div>
                     <div class="col-xl-6 col-lg-5 col-md-8 col-sm-8 col-xs-10">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-envelope-square"></i></div>
+                                <div class="input-group-text"><i class="fas fa-user"></i></div>
                             </div>
-                            <input type="email" class="form-control" id="pro_email" name="pro_email" required
-                                   placeholder="Enter Email">
+                            <input type="text" class="form-control" id="pro_email" name="username" required
+                                   placeholder="Enter Username">
                         </div>
                     </div>
                 </div>
@@ -82,22 +79,16 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-key"></i></div>
                             </div>
-                            <input type="password" minlength="5" class="form-control" id="pro_password" name="pro_password" required placeholder="Enter Password">
+                            <input type="password" minlength="5" class="form-control" id="pro_password" name="adm_pass" required placeholder="Enter Password">
                         </div>
                     </div>
                 </div>
 
-                <div class="row my-3">
-                    <div class="col-xl-4"></div>
-                    <div class="col-xl-4">
-                        <p align="center"><a href="ForgotPassword.php"><font size="2">Forgot Password</font> </a> </p>
-                    </div>
-                </div>
 
-                <div class="row my-3">
+                <div class="row my-5">
                     <div class="d-none d-sm-block col-sm-3 col-md-3 col-lg-4 col-xl-3 mt-auto"></div>
                     <div class="col-sm-8 col-md-8 col-lg-5 col-xl-6">
-                        <button type="submit" name="insert_pro" onclick="myfunction()" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
+                        <button type="submit" name="admin_login" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
                             Login
                         </button>
                     </div>
@@ -105,15 +96,6 @@
 
             </form>
 
-            <div class="row my-3">
-                <div class="col-xl-3"></div>
-                <div class="col-xl-6">
-                    <p align="center"><span class="d-none d-sm-none d-md-inline"> Don't have an Account? </span><a href="Register.php">Sign Up</a> </p>
-                </div>
-            </div>
-
-
-            <script src="loginUsers.js"></script>
         </div>
     </div>
 
