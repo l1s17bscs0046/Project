@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['adm_email'])){
+    header('location: home.php');
+}
 $con = mysqli_connect("localhost","root","","online_study");
 if(!$con)
     die("Connection failed");
@@ -18,14 +21,10 @@ if(isset($_POST['login'])){
     }
     else{
         $_SESSION['user_email'] = $email;
-        if(!empty($_POST['remember'])) {
-            setcookie('user_email', $email, time() + (10 * 365 * 24 * 60 * 60));
-            setcookie('user_pass', $pass, time() + (10 * 365 * 24 * 60 * 60));
-            setcookie('location', 'UCP', time() + (60 * 60));
-        } else {
+        
             setcookie('user_email','' );
             setcookie('user_pass', '');
-        }
+        
         header('location:home.php?logged_in=You have successfully logged in!');
     }
 }

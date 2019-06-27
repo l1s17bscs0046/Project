@@ -3,10 +3,16 @@ session_start();
 if(!isset($_SESSION['user_email'])){
     header('location: index.php');
 }
+if(isset($_SESSION['adm_email'])){
+    header('location: home.php');
+}
 $con = mysqli_connect("localhost","root","","online_study");
 if(!$con)
     die("Connection failed");
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +25,7 @@ if(!$con)
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
-    <title>Student Panel</title>
+    <title>TechBox Admin Panel</title>
     <style>
         * {
             font-family: 'Old Standard TT', serif;
@@ -95,38 +101,11 @@ if(!$con)
             else if(isset($_GET['stud_pro'])){
                 include ('stud_pro.php');
             }
-            else if(isset($_GET['view_topics'])){
-                include ('view_topics.php');
+            else if(isset($_GET['del_pro'])){
+                include ('del_pro.php');
             }
-            else if(isset($_GET['view_categories'])){
-                include ('view_categories.php');
-            }
-            else if(isset($_GET['insert_category'])){
-                include ('insert_category.php');
-            }
-            else if(isset($_GET['edit_category'])){
-                include ('edit_category.php');
-            }
-            else if(isset($_GET['delete_category'])){
-                include ('delete_category.php');
-            }
-            else if(isset($_GET['view_brands'])) {
-                include('view_brands.php');
-            }
-            else if(isset($_GET['insert_brand'])) {
-                include('insert_brand.php');
-            }
-            else if(isset($_GET['edit_brand'])) {
-                include('edit_brand.php');
-            }
-            else if(isset($_GET['del_brand'])) {
-                include('del_brand.php');
-            }
-            else if(isset($_GET['view_customers'])){
-                include ('view_customers.php');
-            }
-            else if(isset($_GET['del_customer'])){
-                include ('del_customer.php');
+			else if(isset($_GET['enroll'])){
+                include ('enroll.php');
             }
             ?>
         </div>

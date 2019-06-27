@@ -1,3 +1,34 @@
+<?php
+session_start();
+if(isset($_SESSION['user_email'])){
+    header('location: home.php');
+}
+$con = mysqli_connect("localhost","root","","online_study");
+if(!$con)
+    die("Connection failed");
+$error_msg = '';
+if(isset($_POST['admin_login'])){
+
+    $email = $_POST['adm_email'];
+    $pass = $_POST['adm_pass'];
+
+
+    $sel_admin = "select * from admins where username='$email' AND password='$pass'";
+    $run_admin = mysqli_query($con, $sel_admin);
+    $check_admin = mysqli_num_rows($run_admin);
+    if($check_admin==0){
+        $error_msg = 'Password or Email is wrong, try again';
+    }
+    else{
+        $_SESSION['adm_email'] = $email;
+        setcookie('adm_email','' );
+        setcookie('adm_pass', '');
+
+        header('location:Admin_panel.php?logged_in=You have successfully logged in!');
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,15 +75,15 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-4 col-lg-4 col-md-12">
+        <div class="col-xl-4 col-lg-4 col-md-4">
             <img src="Pics/Pic2.png" class="container-fluid" width=100% height=100%>
         </div>
 
-        <div class="col-xl-8 col-lg-8 col-md-12">
+        <div class="col-xl-8 col-lg-8 col-md-8">
             <h1 class="text-center my-5"><i class="fas fa-user-tie fa-md"></i> <span class="d-none d-sm-inline"> </span>
                 Admin
             </h1>
-            <form action="Admin_Panel.php" method="post" id="loginForm" enctype="multipart/form-data">
+            <form action="Admin.php" method="post" id="loginForm" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-xs-2 d-none d-sm-inline mt-auto">
                         <label for="pro_title" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> </span>
@@ -63,7 +94,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-user"></i></div>
                             </div>
-                            <input type="text" class="form-control" id="pro_email" name="username" required
+                            <input type="text" class="form-control" id="pro_email" name="adm_email" required
                                    placeholder="Enter Username">
                         </div>
                     </div>
