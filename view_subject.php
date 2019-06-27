@@ -27,10 +27,10 @@
                         <th scope="row"><?php echo ++$i; ?></th>
 
                         <td><?php echo $subject_title; ?></td>
-                        <td><a href="index.php?edit_cat=<?php echo $subject_id?>" class="btn btn-primary">
+                        <td><a href="index.php?edit_subject=<?php echo $subject_id?>" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
-                            <a href="index.php?del_cat=<?php echo $subject_id?>" class="btn btn-danger">
+                            <a href="index.php?del_subject=<?php echo $subject_id?>" class="btn btn-danger">
                                 <i class="fa fa-trash-alt"></i> Delete
                             </a>
                         </td>
