@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Login.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="AboutUs.php" class="text-dark"><font color="white"><i class="fas fa-address-card"></i> About</font><span class="sr-only">(current)</span></a>
@@ -44,15 +44,15 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12">
-            <img src="Pics/Pic1.jpg" class="container-fluid" width=100% height=100%>
+        <div class="col-xl-4 col-lg-4 col-md-12">
+            <img src="Pics/Pic2.png" class="container-fluid" width=100% height=100%>
         </div>
 
-        <div class="col-xl-6 col-lg-6 col-md-12">
+        <div class="col-xl-8 col-lg-8 col-md-12">
             <h1 class="text-center my-5"><i class="fas fa-user-tie fa-md"></i> <span class="d-none d-sm-inline"> </span>
                 Admin
             </h1>
-            <form action="" method="post" id="loginForm" enctype="multipart/form-data">
+            <form action="Admin_Panel.php" method="post" id="loginForm" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-xs-2 d-none d-sm-inline mt-auto">
                         <label for="pro_title" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> </span>
