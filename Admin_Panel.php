@@ -47,10 +47,6 @@ if(!$con)
                     <a class="nav-link" href="ContactUs.php" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <!--<form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary btn-lg active btn btn-secondary btn-sm my-2 my-sm-0" type="submit">Go</button>
-            </form>-->
         </div>
     </nav>
 
@@ -95,7 +91,12 @@ if(!$con)
             else if(isset($_GET['view_students'])){
                 include ('view_students.php');
             }
-
+            if(isset($_GET['edit_sub'])){
+                include ('edit_subject.php');
+            }
+            if(isset($_GET['del_sub'])){
+                include ('delete_subject.php');
+            }
             ?>
         </div>
     </div>
