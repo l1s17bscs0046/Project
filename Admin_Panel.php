@@ -98,11 +98,11 @@ if(!$con)
             else if(isset($_GET['adm_logout'])){
                 include ('adm_logout.php');
             }
-            else if(isset($_GET['edit_cat'])){
+            else if(isset($_GET['edit_sub'])){
                 include ('edit_subject.php');
             }
-            else if(isset($_GET['adm_logout'])){
-                include ('adm_logout.php');
+            else if(isset($_GET['del_sub'])){
+                include ('delete_subject.php');
             }
 
 

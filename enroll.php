@@ -30,11 +30,9 @@ if(isset($_POST['add_course'])){
             <div class="form-group row">
                 <h2 class="offset-lg-3 offset-md-2 offset-1 "> Select a Course </h2>
             </div>
-            
-			<div class=" col-lg-2 col-xl-2 col-md-3 col-sm-4  d-none  d-xs-block d-sm-block mt-auto">
-                <label for="pro_brand" class=" float-sm-right float-md-right"> <span class="d-sm-none d-md-inline"> </span>  Educational level</label>
-            </div>
-            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
+
+
+            <div class="form-group row">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-book"></i></div>
@@ -49,15 +47,20 @@ join subjects Sub on SC.Sub_id =Sub.Sub_id where S.Std_id is NULL";
                             $sub_id = $row['Sub_id'];
                             $sub_title = $row['Title'];
                             //if ($response["type"] == "warning" && $edu_id== $education) {
-                              //  echo "<option value='$edu_id' selected>$edu_title</option>";
+                            //  echo "<option value='$edu_id' selected>$edu_title</option>";
                             //} else {
-                                echo "<option value='$sub_id'>$sub_title</option>";
+                            echo "<option value='$sub_id'>$sub_title</option>";
                             //}
                         }
                         ?>
                     </select><br>
 
                 </div>
+            </div>
+
+
+            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
+
             </div>
 
 			
