@@ -1,11 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['adm_email'])){
-    header('location: admin.php');
-}
-if(isset($_SESSION['user_email'])){
-    header('location: home.php');
-}
+//session_start();
+//if(!isset($_SESSION['user_email'])){
+  //  header('location: login.php?not_admin=You are not Admin!');
+//}
 $con = mysqli_connect("localhost","root","","online_study");
 if(!$con)
     die("Connection failed");
@@ -22,7 +19,7 @@ if(!$con)
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
-    <title>TechBox Admin Panel</title>
+    <title> Admin Panel</title>
     <style>
         * {
             font-family: 'Old Standard TT', serif;
@@ -76,11 +73,6 @@ if(!$con)
                 </a>
             </li>
             <li>
-                <a href="Admin_Panel.php?view_topics">
-                    <i class="fas fa-sitemap"></i> View All Topics
-                </a>
-            </li>
-            <li>
                 <a href="adm_logout.php">
                     <i class="fa fa-sign-out-alt"></i> Admin logout</a>
             </li>
@@ -103,9 +95,10 @@ if(!$con)
             else if(isset($_GET['view_students'])){
                 include ('view_students.php');
             }
-            else if(isset($_GET['view_topics'])){
-                include ('view_topics.php');
+            else if(isset($_GET['adm_logout'])){
+                include ('adm_logout.php');
             }
+
             ?>
         </div>
     </div>

@@ -8,12 +8,12 @@ if(!$con)
     die("Connection failed");
 $error_msg = '';
 if(isset($_POST['admin_login'])){
-	
+
     $email = $_POST['adm_email'];
     $pass = $_POST['adm_pass'];
-	
-	
-    $sel_admin = "select * from admins where email='$email' AND password='$pass'";
+
+
+    $sel_admin = "select * from admins where username='$email' AND password='$pass'";
     $run_admin = mysqli_query($con, $sel_admin);
     $check_admin = mysqli_num_rows($run_admin);
     if($check_admin==0){
@@ -23,7 +23,7 @@ if(isset($_POST['admin_login'])){
         $_SESSION['adm_email'] = $email;
         setcookie('adm_email','' );
         setcookie('adm_pass', '');
-        
+
         header('location:Admin_panel.php?logged_in=You have successfully logged in!');
     }
 }
