@@ -73,6 +73,18 @@ if (isset($_POST['reg_std'])) {
             font-family: 'Vollkorn', serif;
         }
     </style>
+	<script>
+        function checkEmail(email) {
+            var async  = new XMLHttpRequest();
+            async.onreadystatechange = function() {
+                if(this.readyState === 4 && this.status === 200){
+                    document.getElementById("hint").innerHTML = this.responseText;
+                }
+            }
+            async.open("GET","check_email.php?email=" + email);
+            async.send();
+        }
+    </script>
 
 </head>
 <body class="bkg">
@@ -86,7 +98,7 @@ if (isset($_POST['reg_std'])) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Login.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="AboutUs.php" class="text-dark"><font color="white"><i class="fas fa-address-card"></i> About</font><span class="sr-only">(current)</span></a>
@@ -221,7 +233,8 @@ if (isset($_POST['reg_std'])) {
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-envelope-square"></i> </div>
                     </div>
-                    <input  type="email" class="form-control" id="pro_email" name="email" required placeholder="Enter Email">
+                    <input  type="email" class="form-control" id="pro_email" name="email" onkeyup="checkEmail(this.value)" required placeholder="Enter Email">
+					<span class="text-danger" id="hint" ></span>
                 </div>
             </div>
         </div>

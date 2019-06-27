@@ -1,18 +1,49 @@
+<?php
+session_start();
+if(isset($_SESSION['adm_email'])){
+    header('location: home.php');
+}
+$con = mysqli_connect("localhost","root","","online_study");
+if(!$con)
+    die("Connection failed");
+$error_msg = '';
+if(isset($_POST['login'])){
+	
+    $email = $_POST['user_email'];
+    $pass = $_POST['user_pass'];
+	
+	
+    $sel_user = "select * from student where email='$email' AND password='$pass'";
+    $run_user = mysqli_query($con, $sel_user);
+    $check_user = mysqli_num_rows($run_user);
+    if($check_user==0){
+        $error_msg = 'Password or Email is wrong, try again';
+    }
+    else{
+        $_SESSION['user_email'] = $email;
+        
+            setcookie('user_email','' );
+            setcookie('user_pass', '');
+        
+        header('location:home.php?logged_in=You have successfully logged in!');
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Basics Academia</title>
+    <title>Login</title>
 
-    <meta name="keywords" content="online courses, online study websites, distance learning, free online courses">
     <meta name="viewport" content="width=device-width, initial-scale= 1.0">
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="CSS/BootStrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
-<body class="Backgr">
+<body>
+
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -24,7 +55,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Login.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php" class="text-dark"><font color="white"><i class="fas fa-key"></i> Login</font> <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="AboutUs.php" class="text-dark"><font color="white"><i class="fas fa-address-card"></i> About</font><span class="sr-only">(current)</span></a>
@@ -33,10 +64,10 @@
                     <a class="nav-link" href="ContactUs.php" class="text-dark"><font color="white"><i class="fas fa-mobile-alt"></i> Contact</font><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!--<form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-secondary btn-lg active btn btn-secondary btn-sm my-2 my-sm-0" type="submit">Go</button>
-            </form>
+            </form>-->
         </div>
     </nav>
 
@@ -44,22 +75,92 @@
 
 
 <div class="container-fluid">
-    <h1 class="text-lg-center text-sm-center text-md-center text-xl-center my-4 text-center">
-        <img width="250" height="280" src="Logo.png">
-    </h1>
-    <h2>
-        <a class="text-light bg-dark">It's never too late to learn</a>
-    </h2>
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="d-none d-sm-block col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-auto"></div>
-            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                <button type="submit" name="insert_pro" class="btn btn-primary btn-block">
-                    <a class="text-dark"><b>Start Learning</b></a>
-                </button>
-            </div>
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-12">
+            <img src="Pics/Pic1.jpg" class="container-fluid" width=100% height=100%>
         </div>
-    </form>
+
+        <div class="col-xl-4 col-lg-4 col-md-12">
+            <h1 class="text-center my-5"><i class="fas fa-user-lock fa-md"></i> <span class="d-none d-sm-inline"> </span>
+                Login
+            </h1>
+            <h6 class="text-center my-3"><i class="fas fa-user-tie fa-md"></i><span class="d-none d-sm-inline"> </span>
+                Login as <a href="Admin.php">Admin</a>
+            </h6>
+            <form action="index.php" method="post" id="loginForm" enctype="multipart/form-data">
+                <div><?php echo $error_msg;?></div>
+				
+				<div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-xs-2 d-none d-sm-inline mt-auto">
+                        <label for="pro_title" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> </span>
+                            Email:</label>
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-8 col-sm-8 col-xs-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-envelope-square"></i></div>
+                            </div>
+                            <input type="email" class="form-control" id="pro_email"	name="user_email" required
+                                   placeholder="Enter Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 d-none d-sm-block mt-auto">
+                        <label for="pro_price" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"></span>
+                            Password:</label>
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-8 col-sm-8">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-key"></i></div>
+                            </div>
+                            <input type="password" minlength="5" class="form-control" id="pro_password" name="user_pass" required placeholder="Enter Password">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xl-4"></div>
+                    <div class="col-xl-4">
+                        <p align="center"><a href="ForgotPassword.php"><font size="2">Forgot Password</font> </a> </p>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="d-none d-sm-block col-sm-3 col-md-3 col-lg-4 col-xl-3 mt-auto"></div>
+                    <div class="col-sm-8 col-md-8 col-lg-5 col-xl-6">
+                        <button type="submit" name="login" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
+                            Login
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="row my-3">
+                <div class="col-xl-3"></div>
+                <div class="col-xl-6">
+                    <p align="center"><span class="d-none d-sm-none d-md-inline"> Don't have an Account? </span><a href="Register.php">Sign Up</a> </p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
 </div>
+
+
+
+<hr>
+<footer>
+    <p>Developed by <a href="https://github.com/l1s17bscs0046">Ahmed Asad</a></p>
+    <address>
+        University of Central Punjab, Lahore
+    </address>
+    <p> Copyrights &copy; 2019 All rights reserved. </p>
+</footer>
 </body>
 </html>
