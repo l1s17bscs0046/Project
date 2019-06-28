@@ -10,29 +10,30 @@
             </thead>
             <tbody>
             <?php
-            $get_sub = "select * from subjects";
+            $get_sub = "select S.title, SC.topic, SC.content from subjects S join subject_content SC on S.title=SC.title";
             $run_sub = mysqli_query($con,$get_sub);
             $count_sub = mysqli_num_rows($run_sub);
             if($count_sub==0){
-                echo "<h2> No subjects found in selected criteria </h2>";
+                echo "<h2> No topics found in selected criteria </h2>";
             }
             else {
                 $i = 0;
                 while ($row_sub= mysqli_fetch_array($run_sub)) {
-                    $subject_id = $row_sub['Sub_id'];
-                    $subject_title = $row_sub['Title'];
+                    $subject_title = $row_sub['title'];
+                    $subject_topic = $row_sub['topic'];
+                    $subject_content = $row_sub['content'];
 
                     ?>
                     <tr>
                         <th scope="row"><?php echo ++$i; ?></th>
 
-                        <td><?php echo $subject_title; ?></td>
+                        <td><?php echo $subject_topic; ?></td>
+
+                        <td><?php echo $subject_content; ?></td>
                         <td><a href="Admin_Panel.php?show_topics=<?php echo $subject_title?>" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Topics
                             </a>
-                            <a href="Admin_Panel.php?edit_sub=<?php echo $subject_id?>" class="btn btn-primary">
-                                <i class="fa fa-edit"></i> Edit
-                            </a>
+
                             <a href="Admin_Panel.php?del_sub=<?php echo $subject_id?>" class="btn btn-danger">
                                 <i class="fa fa-trash-alt"></i> Delete
                             </a>

@@ -84,6 +84,7 @@ if(isset($_POST['admin_login'])){
                 Admin
             </h1>
             <form action="Admin.php" method="post" id="loginForm" enctype="multipart/form-data">
+                <div><?php echo $error_msg;?></div>
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-3 col-sm-3 col-xs-2 d-none d-sm-inline mt-auto">
                         <label for="pro_title" class="float-md-right float-sm-right"> <span class="d-sm-none d-md-inline"> </span>

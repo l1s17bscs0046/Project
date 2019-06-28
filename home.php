@@ -4,7 +4,7 @@ if(!isset($_SESSION['user_email'])){
     header('location: index.php');
 }
 if(isset($_SESSION['adm_email'])){
-    header('location: home.php');
+    header('location: Admin_Panel.php');
 }
 $con = mysqli_connect("localhost","root","","online_study");
 if(!$con)
@@ -120,5 +120,13 @@ if(!$con)
         });
     });
 </script>
+<hr>
+<footer>
+    <font size="2"> <p>  Developed by <a href="https://github.com/hamdacheema">Hamda cheema </a></p>
+        <address>
+            University of Central Punjab, Lahore
+        </address>
+        <p> Copyrights &copy; 2019 All rights reserved. </p> </font>
+</footer>
 </body>
 </html>

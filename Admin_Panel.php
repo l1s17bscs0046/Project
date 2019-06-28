@@ -1,8 +1,12 @@
 <?php
-//session_start();
-//if(!isset($_SESSION['user_email'])){
-  //  header('location: login.php?not_admin=You are not Admin!');
-//}
+session_start();
+if(isset($_SESSION['user_email'])){
+    header('location: home.php');
+}
+if(!isset($_SESSION['adm_email'])){
+    header('location: Admin.php');
+}
+
 $con = mysqli_connect("localhost","root","","online_study");
 if(!$con)
     die("Connection failed");
@@ -110,6 +114,9 @@ if(!$con)
             else if(isset($_GET['del_std'])){
                 include ('del_std.php');
             }
+            else if(isset($_GET['show_topics'])){
+                include ('show_topics.php');
+            }
 
 
             ?>
@@ -125,5 +132,13 @@ if(!$con)
         });
     });
 </script>
+<hr>
+<footer>
+    <font size="2"> <p>  Developed by <a href="https://github.com/hamdacheema">Hamda cheema </a></p>
+        <address>
+            University of Central Punjab, Lahore
+        </address>
+        <p> Copyrights &copy; 2019 All rights reserved. </p> </font>
+</footer>
 </body>
 </html>
