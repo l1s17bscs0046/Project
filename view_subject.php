@@ -27,9 +27,12 @@
                         <th scope="row"><?php echo ++$i; ?></th>
 
                         <td><?php echo $subject_title; ?></td>
-                        <td><a href="Admin_Panel.php?show_topics=<?php echo $subject_title?>" class="btn btn-primary">
-                                <i class="fa fa-edit"></i> Topics
+                        <td>
+                            <a href="Admin_Panel.php?show_topics=<?php echo $subject_title?>" class="btn btn-primary">
+                                <i class="fa fa-book"></i> Topics
                             </a>
+                        </td>
+                        <td>
                             <a href="Admin_Panel.php?edit_sub=<?php echo $subject_id?>" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Edit
                             </a>

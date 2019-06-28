@@ -117,6 +117,12 @@ if(!$con)
             else if(isset($_GET['show_topics'])){
                 include ('show_topics.php');
             }
+            else if(isset($_GET['del_topic'])){
+                include ('del_topic.php');
+            }
+            else if(isset($_GET['add_newTopic'])){
+                include ('add_newTopic.php');
+            }
 
 
             ?>
