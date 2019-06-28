@@ -41,5 +41,10 @@
             ?>
             </tbody>
         </table>
+        <div class="text-center">
+            <a href="Admin_Panel.php?add_subject" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Add a Subject
+            </a>
+        </div>
     </div>
 </div>

@@ -104,6 +104,12 @@ if(!$con)
             else if(isset($_GET['del_sub'])){
                 include ('delete_subject.php');
             }
+            else if(isset($_GET['add_subject'])){
+                include ('add_subject.php');
+            }
+            else if(isset($_GET['del_std'])){
+                include ('del_std.php');
+            }
 
 
             ?>

@@ -27,11 +27,9 @@
                         <th scope="row"><?php echo ++$i; ?></th>
 
                         <td><?php echo $student_name;?></td>
-                        <td><a href="index.php?edit_cat=<?php echo $student_name?>" class="btn btn-primary">
-                                <i class="fa fa-edit"></i> Edit
-                            </a>
-                            <a href="index.php?del_cat=<?php echo $student_id?>" class="btn btn-danger">
-                                <i class="fa fa-trash-alt"></i> Delete
+                        <td>
+                            <a href="Admin_Panel.php?del_std=<?php echo $student_id?>" class="btn btn-danger">
+                                <i class="fa fa-trash-alt"></i> Remove
                             </a>
                         </td>
                     </tr>

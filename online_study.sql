@@ -51,6 +51,7 @@ values
 ("Hamda", "Nawazish Ali", 'F', "hamdacheema577@ucp.edu.pk","hamdacheema","bscs07",NULL),
 ("Muhammad Annas", "Asif", 'M', "muhammad.annas@ucp.edu.pk","muhammad.annas","bscs22",NULL);
 
+drop table Subjects;
 create table Subjects(
 Sub_id int not null auto_increment,
 Title varchar(30) not null,
@@ -116,6 +117,7 @@ int main()
     return 0;
 }",NULL,NULL);
 
+drop table Student_courses;
 create table Student_courses(
 Std_id int not null,
 Sub_id int not null,

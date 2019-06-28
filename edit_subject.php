@@ -10,9 +10,14 @@ if(isset($_GET['edit_sub'])){
 
 
 }
-if(isset($_POST['update_subject'])){
+if(isset($_POST['update_sub'])){
     //getting text data from the fields
-    $sub_title = $_POST['Title'];
+    $sub_title = $_POST['sub_title'];
+
+    $update_topic = "update subject_content set Title= '$sub_title'
+                   where Title=(select title from subjects where sub_id = '$sub_id')";
+
+    $update_top= mysqli_query($con, $update_topic);
 
 
     $update_subject = "update subjects set Title= '$sub_title'

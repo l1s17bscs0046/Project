@@ -1,26 +1,24 @@
 <?php
 if(!isset($_SESSION['user_email'])){
-    header('location: home.php');
+    header('location: index.php');
 }
 
-if(isset($_POST['add_course'])){
-    //getting text data from the fields
-    $course = $_POST['add_course'];
-    //getting image from the field
-    $pro_image = $_FILES['pro_image']['name'];
-    $pro_image_tmp = $_FILES['pro_image']['tmp_name'];
-    move_uploaded_file($pro_image_tmp,"product_images/$pro_image");
-    $update_product = "update products set pro_cat = '$pro_cat', 
-                                        pro_brand = '$pro_brand',
-                                        pro_title = '$pro_title' ,
-                                        pro_price = '$pro_price',
-                                        pro_desc = '$pro_desc',
-                                        pro_image = '$pro_image', 
-                                        pro_keywords = '$pro_keywords' 
-                                        where pro_id='$pro_id'";
-    $update_pro = mysqli_query($con, $update_product);
+if(isset($_SESSION['adm_email'])){
+    header('location: Admin_Panel.php');
+}
+
+$email=$_SESSION['user_email'];
+echo "$email";
+
+if(isset($_POST['add_sub'])){
+    $course = $_POST['sub_name'];
+
+
+    $enroll_course = "insert into student_courses (Std_id, Sub_id) value ((select std_id from student where email='$email'),(select std_id from
+subjects where title = '$course'))";;
+    $update_pro = mysqli_query($con, $enroll_course);
     if($update_pro){
-        header("location: index.php?view_products");
+        header("location: home.php?view_courses");
     }
 }
 ?>
@@ -59,12 +57,9 @@ join subjects Sub on SC.Sub_id =Sub.Sub_id where S.Std_id is NULL";
             </div>
 
 
-            <div class="col-lg-3 col-xl-3 col-md-8 col-sm-7 ">
 
-            </div>
 
-			
-			<div class="form-group row">
+            <div class="form-group row">
                 <div class="offset-sm-3 col-12 col-sm-6">
                     <input class="btn btn-block btn-primary btn-lg" type="submit" id="update_pro" name="add_course"
                            value="Select Course Now">
@@ -73,3 +68,4 @@ join subjects Sub on SC.Sub_id =Sub.Sub_id where S.Std_id is NULL";
         </form>
     </div>
 </div>
+
